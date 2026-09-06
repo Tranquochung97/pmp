@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>PMP Coach — iPhone v20</title>
+<title>PMP Coach — iPhone v22</title>
 <style>
 
 :root{--nav:#173a61;--nav2:#0f2b49;--accent:#1f66ad;--bg:#f4f7fa;--card:#fff;--border:#ccd6e1;--text:#172331;--muted:#66788a;--good:#1b7f4b;--bad:#b52a2a;--warn:#9b6500;--hl:#fff59d}
@@ -378,30 +378,339 @@ textarea{width:100%;min-height:110px;border:1px solid var(--border);border-radiu
 </style>
 
 
-<style id="iphone-v20-vocab-audio-layout">
+<style id="iphone-v21-vocab-audio-layout">
 @media(max-width:700px){
-  .vocab-table-row.v17{grid-template-columns:1fr auto!important;grid-template-areas:'word status' 'meta meta' 'actions actions'!important;padding:13px 12px 12px!important;gap:8px 10px!important}
+  .vocab-table-row.v17{
+    display:grid!important;
+    grid-template-columns:minmax(0,1fr) auto!important;
+    grid-template-areas:
+      'word word'
+      'status status'
+      'priority freq'
+      'actions actions'!important;
+    padding:13px 12px 12px!important;
+    gap:8px 10px!important;
+  }
   .mobile-vocab-main{grid-area:word!important;display:block!important;min-width:0!important}
-  .vocab-word-play{display:block!important;width:auto!important;max-width:100%!important;padding:0!important;margin:0 0 2px!important;border:0!important;background:transparent!important;color:#14233a!important;font-size:19px!important;font-weight:850!important;line-height:1.22!important;text-align:left!important;cursor:pointer!important;-webkit-tap-highlight-color:rgba(35,120,212,.10)}
+  .mobile-vocab-word-row{display:block!important;margin:0 0 2px!important}
+  .vocab-word-play{display:block!important;width:auto!important;max-width:100%!important;padding:0!important;margin:0!important;border:0!important;background:transparent!important;color:#14233a!important;font-size:19px!important;font-weight:850!important;line-height:1.22!important;text-align:left!important;cursor:pointer!important;-webkit-tap-highlight-color:rgba(35,120,212,.10)}
   .vocab-word-play:active{opacity:.6!important;transform:scale(.985)!important}
-  .mobile-vocab-meaning{font-size:14px!important;line-height:1.3!important;color:#718198!important;margin:0 0 7px!important;word-break:break-word!important}
-  .mobile-speak-btn{display:inline-flex!important;align-items:center!important;gap:5px!important;min-height:31px!important;padding:5px 10px!important;margin:0 7px 0 0!important;border:1px solid #cfe1f3!important;border-radius:999px!important;background:#eef6ff!important;color:#1767ad!important;font-size:12px!important;font-weight:800!important;vertical-align:middle!important;-webkit-tap-highlight-color:rgba(35,120,212,.12)}
+  .mobile-vocab-audio-row{display:flex!important;align-items:center!important;gap:8px!important;flex-wrap:wrap!important;margin:4px 0 0!important}
+  .mobile-speak-btn{display:inline-flex!important;align-items:center!important;gap:5px!important;min-height:31px!important;padding:5px 10px!important;margin:0!important;border:1px solid #cfe1f3!important;border-radius:999px!important;background:#eef6ff!important;color:#1767ad!important;font-size:12px!important;font-weight:800!important;vertical-align:middle!important;-webkit-tap-highlight-color:rgba(35,120,212,.12)}
   .mobile-speak-btn:active{background:#dceeff!important;transform:scale(.97)!important}
-  .mobile-vocab-main .tiny-cat{display:inline-flex!important;vertical-align:middle!important;margin:0!important;padding:4px 7px!important;border-radius:999px!important;background:#f1f4f7!important;color:#6b7c8e!important;font-size:9px!important;font-weight:800!important}
-  .mobile-vocab-status{grid-area:status!important;align-self:start!important;justify-self:end!important;padding-top:2px!important}
-  .mobile-vocab-priority{grid-area:meta!important;justify-self:start!important;margin:0!important;display:flex!important;align-items:center!important}
-  .mobile-vocab-freq{grid-area:meta!important;justify-self:end!important;display:flex!important;align-items:baseline!important;gap:6px!important;font-size:12px!important;color:#6f8195!important}
-  .mobile-vocab-freq b{font-size:15px!important;color:#18283b!important}.mobile-vocab-freq span{white-space:nowrap!important}
+  .mobile-vocab-meaning{display:block!important;font-size:14px!important;line-height:1.34!important;color:#718198!important;margin:6px 0 0!important;word-break:break-word!important}
+  .mobile-vocab-main .tiny-cat{display:inline-flex!important;vertical-align:middle!important;width:max-content!important;margin:7px 0 0!important;padding:4px 7px!important;border-radius:999px!important;background:#f1f4f7!important;color:#6b7c8e!important;font-size:9px!important;font-weight:800!important}
+  .mobile-vocab-status{grid-area:status!important;justify-self:end!important;align-self:start!important;padding-top:0!important}
+  .mobile-vocab-priority{grid-area:priority!important;justify-self:start!important;margin:0!important;display:flex!important;align-items:center!important}
+  .mobile-vocab-freq{grid-area:freq!important;justify-self:end!important;display:flex!important;align-items:baseline!important;gap:6px!important;font-size:12px!important;color:#6f8195!important}
+  .mobile-vocab-freq b{font-size:15px!important;color:#18283b!important}
+  .mobile-vocab-freq span{white-space:nowrap!important}
   .vocab-table-row.v17>div:nth-child(2),.vocab-table-row.v17>div:nth-child(3),.vocab-table-row.v17>div:nth-child(4){margin-right:0!important}
   .quick-grade-wrap.v17{margin-top:2px!important}
 }
 </style>
+
+<style id="iphone-v22-review-fit">
+@media(max-width:700px){
+  body.iphone-review-mode{
+    overflow:hidden!important;
+    background:#eef3f8!important;
+    padding-bottom:0!important;
+  }
+  body.iphone-review-mode .top{
+    min-height:38px!important;
+    height:38px!important;
+    padding:4px 8px!important;
+    position:sticky!important;
+    top:0!important;
+    z-index:50!important;
+  }
+  body.iphone-review-mode .top .brand{
+    font-size:12px!important;
+    line-height:1!important;
+    white-space:nowrap!important;
+    overflow:hidden!important;
+    text-overflow:ellipsis!important;
+    max-width:230px!important;
+  }
+  body.iphone-review-mode .top .sub{display:none!important}
+  body.iphone-review-mode .top .ghost{
+    min-height:29px!important;
+    height:29px!important;
+    padding:4px 9px!important;
+    border-radius:9px!important;
+    font-size:10px!important;
+  }
+  body.iphone-review-mode .timer-badge{display:none!important}
+
+  body.iphone-review-mode .review-one-wrap{
+    width:100%!important;
+    max-width:none!important;
+    height:calc(100dvh - 38px)!important;
+    min-height:0!important;
+    margin:0!important;
+    padding:5px 6px 5px!important;
+    display:flex!important;
+    flex-direction:column!important;
+    overflow:hidden!important;
+  }
+  body.iphone-review-mode .review-one-top{
+    flex:0 0 auto!important;
+    min-height:30px!important;
+    height:30px!important;
+    margin:0 0 4px!important;
+    padding:0 2px!important;
+    display:grid!important;
+    grid-template-columns:auto 1fr auto!important;
+    align-items:center!important;
+    gap:6px!important;
+  }
+  body.iphone-review-mode .review-one-top .review-mobile-back{
+    font-size:10px!important;
+    font-weight:800!important;
+    color:#35679c!important;
+    white-space:nowrap!important;
+  }
+  body.iphone-review-mode .review-mobile-progress{
+    min-width:0!important;
+    text-align:center!important;
+    line-height:1.05!important;
+  }
+  body.iphone-review-mode .review-mobile-progress b{
+    display:block!important;
+    font-size:11.5px!important;
+    color:#173a61!important;
+    white-space:nowrap!important;
+  }
+  body.iphone-review-mode .review-mobile-progress span{
+    display:block!important;
+    font-size:8.5px!important;
+    color:#6b7d90!important;
+    white-space:nowrap!important;
+    overflow:hidden!important;
+    text-overflow:ellipsis!important;
+  }
+  body.iphone-review-mode .review-swipe-hint{
+    font-size:9px!important;
+    color:#667a8f!important;
+    background:#edf3f8!important;
+    border:1px solid #dbe5ef!important;
+    border-radius:999px!important;
+    padding:3px 6px!important;
+    white-space:nowrap!important;
+  }
+  body.iphone-review-mode .review-nav-shortcuts{display:none!important}
+
+  body.iphone-review-mode .review-question-card.review-single-page{
+    flex:1 1 auto!important;
+    min-height:0!important;
+    overflow:hidden!important;
+    padding:6px 7px!important;
+    border-radius:12px!important;
+    display:flex!important;
+    flex-direction:column!important;
+    box-shadow:0 4px 14px rgba(33,61,91,.07)!important;
+  }
+  body.iphone-review-mode .review-q-meta{
+    flex:0 0 auto!important;
+    margin:0 0 3px!important;
+  }
+  body.iphone-review-mode .review-q-meta b{font-size:10.8px!important}
+  body.iphone-review-mode .review-q-meta span{font-size:8px!important;padding:2px 5px!important}
+  body.iphone-review-mode .review-state{
+    font-size:9.5px!important;
+    padding:3px 7px!important;
+    border-radius:999px!important;
+  }
+
+  body.iphone-review-mode .review-question{
+    flex:0 0 auto!important;
+    max-height:none!important;
+    overflow:visible!important;
+    margin:0 0 4px!important;
+    padding:5px 7px!important;
+    border-radius:8px!important;
+    font-size:11.1px!important;
+    line-height:1.24!important;
+  }
+  body.iphone-review-mode .review-options.compact-options{
+    flex:0 0 auto!important;
+    display:grid!important;
+    gap:3px!important;
+    margin-bottom:4px!important;
+  }
+  body.iphone-review-mode .review-option{
+    min-height:27px!important;
+    padding:3px 6px!important;
+    border-radius:8px!important;
+    grid-template-columns:24px 1fr 14px!important;
+    gap:5px!important;
+    line-height:1.18!important;
+  }
+  body.iphone-review-mode .review-option>span:first-child{
+    width:22px!important;
+    min-width:22px!important;
+    height:22px!important;
+    border-radius:6px!important;
+    font-size:9px!important;
+  }
+  body.iphone-review-mode .review-option>div{
+    font-size:10.25px!important;
+    line-height:1.19!important;
+    padding-top:2px!important;
+  }
+  body.iphone-review-mode .review-option>b{font-size:10px!important}
+
+  body.iphone-review-mode .compact-explanation{
+    flex:1 1 auto!important;
+    min-height:0!important;
+    overflow:hidden!important;
+    margin:0!important;
+    padding:5px 7px!important;
+    border-radius:9px!important;
+    border-left-width:3px!important;
+    font-size:9.4px!important;
+    line-height:1.21!important;
+  }
+  body.iphone-review-mode .compact-status{
+    font-size:10px!important;
+    margin:0 0 2px!important;
+  }
+  body.iphone-review-mode .status-icon{
+    width:19px!important;height:19px!important;font-size:9px!important;
+  }
+  body.iphone-review-mode .compact-divider{margin:2px 0 3px!important}
+  body.iphone-review-mode .correct-answer-line{
+    font-size:10.2px!important;
+    line-height:1.22!important;
+    margin:2px 0!important;
+  }
+  body.iphone-review-mode .your-answer-line{
+    font-size:9.2px!important;
+    line-height:1.2!important;
+    padding:3px 5px!important;
+    margin:2px 0 3px!important;
+  }
+  body.iphone-review-mode .explain-title,
+  body.iphone-review-mode .wrong-title{
+    font-size:9.7px!important;
+    line-height:1.15!important;
+    margin:3px 0 1px!important;
+  }
+  body.iphone-review-mode .explain-paragraph{
+    font-size:9.15px!important;
+    line-height:1.2!important;
+    margin:0 0 2px!important;
+  }
+  body.iphone-review-mode .wrong-lines{gap:1px!important}
+  body.iphone-review-mode .wrong-line{
+    font-size:8.95px!important;
+    line-height:1.18!important;
+    padding:1px 2px!important;
+    margin:0!important;
+  }
+  body.iphone-review-mode .wrong-line.chosen-wrong{
+    padding:2px 4px!important;
+  }
+  body.iphone-review-mode .chosen-note{font-size:8px!important}
+  body.iphone-review-mode .review-footer{
+    flex:0 0 auto!important;
+    font-size:7.8px!important;
+    line-height:1!important;
+    margin:2px 0 0!important;
+    padding:1px 0 0!important;
+  }
+
+  body.iphone-review-mode .review-bottom-nav{
+    flex:0 0 auto!important;
+    min-height:31px!important;
+    height:31px!important;
+    margin:4px 0 0!important;
+    padding:2px 4px!important;
+    border-radius:10px!important;
+    display:grid!important;
+    grid-template-columns:38px 1fr 38px!important;
+    gap:5px!important;
+    align-items:center!important;
+    box-shadow:none!important;
+  }
+  body.iphone-review-mode .review-bottom-nav .btn{
+    min-height:26px!important;
+    height:26px!important;
+    padding:0!important;
+    border-radius:8px!important;
+    font-size:17px!important;
+    line-height:1!important;
+  }
+  body.iphone-review-mode .review-bottom-nav .vocab-shortcut-hint{
+    display:block!important;
+    text-align:center!important;
+    font-size:8.3px!important;
+    padding:0!important;
+    border:0!important;
+    background:transparent!important;
+    color:#6a7d91!important;
+  }
+
+  body.iphone-review-mode .review-question-card.swipe-left{
+    animation:reviewSwipeLeft .18s ease;
+  }
+  body.iphone-review-mode .review-question-card.swipe-right{
+    animation:reviewSwipeRight .18s ease;
+  }
+
+  /* If one unusually long question still overflows, shrink one extra step. */
+  body.iphone-review-mode.review-fit-tight .review-question{
+    font-size:10.4px!important;line-height:1.18!important;padding:4px 6px!important;
+  }
+  body.iphone-review-mode.review-fit-tight .review-option>div{
+    font-size:9.65px!important;line-height:1.14!important;
+  }
+  body.iphone-review-mode.review-fit-tight .compact-explanation{
+    font-size:8.8px!important;line-height:1.15!important;padding:4px 6px!important;
+  }
+  body.iphone-review-mode.review-fit-tight .correct-answer-line{font-size:9.6px!important}
+  body.iphone-review-mode.review-fit-tight .explain-paragraph{font-size:8.6px!important;line-height:1.14!important}
+  body.iphone-review-mode.review-fit-tight .wrong-line{font-size:8.35px!important;line-height:1.12!important}
+  body.iphone-review-mode.review-fit-tight .explain-title,
+  body.iphone-review-mode.review-fit-tight .wrong-title{font-size:9px!important;margin:2px 0 1px!important}
+
+  body.iphone-review-mode.review-fit-ultra .review-question{
+    font-size:9.7px!important;line-height:1.13!important;
+  }
+  body.iphone-review-mode.review-fit-ultra .review-option{
+    min-height:24px!important;padding:2px 5px!important;
+  }
+  body.iphone-review-mode.review-fit-ultra .review-option>div{
+    font-size:9px!important;line-height:1.08!important;
+  }
+  body.iphone-review-mode.review-fit-ultra .compact-explanation{
+    padding:3px 5px!important;
+  }
+  body.iphone-review-mode.review-fit-ultra .compact-status{font-size:9px!important}
+  body.iphone-review-mode.review-fit-ultra .correct-answer-line{font-size:9px!important;line-height:1.1!important}
+  body.iphone-review-mode.review-fit-ultra .your-answer-line{font-size:8px!important}
+  body.iphone-review-mode.review-fit-ultra .explain-paragraph{font-size:7.95px!important;line-height:1.08!important}
+  body.iphone-review-mode.review-fit-ultra .wrong-line{font-size:7.8px!important;line-height:1.06!important}
+  body.iphone-review-mode.review-fit-ultra .explain-title,
+  body.iphone-review-mode.review-fit-ultra .wrong-title{font-size:8.3px!important;margin:1px 0!important}
+}
+@keyframes reviewSwipeLeft{
+  from{opacity:.55;transform:translateX(18px)}
+  to{opacity:1;transform:translateX(0)}
+}
+@keyframes reviewSwipeRight{
+  from{opacity:.55;transform:translateX(-18px)}
+  to{opacity:1;transform:translateX(0)}
+}
+</style>
+
 </head>
 <body>
 <header class="top">
   <div>
-    <div class="brand">PMP Coach — iPhone v20</div>
-    <div class="sub">Thi thử · Review · 5.000 Vocabulary · Voice tối ưu iPhone</div>
+    <div class="brand">PMP Coach — iPhone v22</div>
+    <div class="sub">Thi thử · Review · 5.000 Vocabulary · Review 1 màn hình · Vuốt trái/phải · Vocabulary tối ưu</div>
   </div>
   <div class="top-actions">
     <span id="timerBadge" class="timer-badge hidden">00:00</span>
@@ -1490,12 +1799,91 @@ function vocabMemorizeShortcut(q,root){
 function renderReviewQuestion(attemptIndex,itemIndex){
   const attempt=S.attempts[attemptIndex];if(!attempt)return openReviewHistory();const items=attempt.items||[];if(!items.length)return openReviewHistory();
   itemIndex=Math.max(0,Math.min(items.length-1,itemIndex));REVIEW_STATE={attemptIndex,itemIndex};const it=items[itemIndex],q=getQ(it.id),st=S.questionStats[it.id]||{};if(!q){toast('Không tìm thấy câu hỏi nguồn');return}
-  app.innerHTML=`<div class="wrap review-one-wrap"><div class="review-one-top"><div><button class="mini-link" id="backHistory">← Lịch sử Review</button><h2>${reviewLabel(attemptIndex)} <span class="review-counter">Câu ${itemIndex+1}/${items.length}</span></h2><div class="small">${esc(attempt.day||attempt.mode||'Test')} · ${attempt.correct}/${attempt.total} (${pct(attempt.correct,attempt.total)}%)</div></div><div class="review-nav-shortcuts"><span>&lt; / ← câu trước</span><span>&gt; / → câu sau</span></div></div>
-  <article class="review-question-card review-single-page" id="reviewCurrent"><div class="review-q-meta"><div><b>${esc(q.source)} · Câu ${q.sourceQuestion}</b><span>${it.sec||0}s</span></div><div class="review-state ${it.correct?'good':'bad'}">${it.correct?(it.unsure?'Đúng · 50:50':'Đúng'):'Sai'}</div></div><div class="review-question vocab-zone">${esc(q.question)}</div><div class="review-options compact-options">${q.options.map(o=>{const c=(q.correct||[]).includes(o.id),u=(it.answer||[]).includes(o.id);return `<div class="review-option ${c?'correct-option':(u?'wrong-option':'')} vocab-zone"><span>${o.id}</span><div>${esc(o.text)}</div>${c?'<b>✓</b>':(u?'<b>×</b>':'')}</div>`}).join('')}</div>${renderCompactReview(q,it)}<div class="review-footer small">Wrong ${st.wrongCount||0} · 50:50 ${st.unsureCount||0} · Streak ${st.correctStreak||0}${st.nextDue?' · Ôn lại '+new Date(st.nextDue).toLocaleDateString():''}</div></article>
-  <div class="review-bottom-nav"><button class="btn secondary" id="reviewPrev" ${itemIndex===0?'disabled':''}>← Previous</button><div class="vocab-shortcut-hint">Bôi đen từ: <b>Alt+K</b> tra nghĩa · <b>Alt+M</b> thêm từ</div><button class="btn" id="reviewNext" ${itemIndex===items.length-1?'disabled':''}>Next →</button></div></div>`;
-  const root=document.getElementById('reviewCurrent');attachVocabInteractions(root,q);installReviewSelectionCache(q,root);document.getElementById('backHistory').onclick=openReviewHistory;document.getElementById('reviewPrev').onclick=()=>renderReviewQuestion(attemptIndex,itemIndex-1);document.getElementById('reviewNext').onclick=()=>renderReviewQuestion(attemptIndex,itemIndex+1);
+  app.innerHTML=`<div class="wrap review-one-wrap">
+    <div class="review-one-top">
+      <button class="mini-link review-mobile-back" id="backHistory">← ${reviewLabel(attemptIndex)}</button>
+      <div class="review-mobile-progress"><b>Câu ${itemIndex+1}/${items.length}</b><span>${esc(attempt.day||attempt.mode||'Test')} · ${attempt.correct}/${attempt.total} (${pct(attempt.correct,attempt.total)}%)</span></div>
+      <span class="review-swipe-hint">⇆ Vuốt</span>
+    </div>
+    <article class="review-question-card review-single-page" id="reviewCurrent">
+      <div class="review-q-meta"><div><b>${esc(q.source)} · Câu ${q.sourceQuestion}</b><span>${it.sec||0}s</span></div><div class="review-state ${it.correct?'good':'bad'}">${it.correct?(it.unsure?'Đúng · 50:50':'Đúng'):'Sai'}</div></div>
+      <div class="review-question vocab-zone">${esc(q.question)}</div>
+      <div class="review-options compact-options">${q.options.map(o=>{const c=(q.correct||[]).includes(o.id),u=(it.answer||[]).includes(o.id);return `<div class="review-option ${c?'correct-option':(u?'wrong-option':'')} vocab-zone"><span>${o.id}</span><div>${esc(o.text)}</div>${c?'<b>✓</b>':(u?'<b>×</b>':'')}</div>`}).join('')}</div>
+      ${renderCompactReview(q,it)}
+      <div class="review-footer small">Wrong ${st.wrongCount||0} · 50:50 ${st.unsureCount||0} · Streak ${st.correctStreak||0}${st.nextDue?' · Ôn '+new Date(st.nextDue).toLocaleDateString():''}</div>
+    </article>
+    <div class="review-bottom-nav">
+      <button class="btn secondary" id="reviewPrev" ${itemIndex===0?'disabled':''} aria-label="Câu trước">‹</button>
+      <div class="vocab-shortcut-hint">Vuốt trái/phải để chuyển câu</div>
+      <button class="btn" id="reviewNext" ${itemIndex===items.length-1?'disabled':''} aria-label="Câu sau">›</button>
+    </div>
+  </div>`;
+  const root=document.getElementById('reviewCurrent');
+  document.body.classList.add('iphone-review-mode');
+  document.body.classList.remove('review-fit-tight','review-fit-ultra');
+  attachVocabInteractions(root,q);
+  installReviewSelectionCache(q,root);
+  document.getElementById('backHistory').onclick=()=>{document.body.classList.remove('iphone-review-mode','review-fit-tight','review-fit-ultra');openReviewHistory()};
+  document.getElementById('reviewPrev').onclick=()=>{if(itemIndex>0)renderReviewQuestion(attemptIndex,itemIndex-1)};
+  document.getElementById('reviewNext').onclick=()=>{if(itemIndex<items.length-1)renderReviewQuestion(attemptIndex,itemIndex+1)};
   installReviewHotkeys(attemptIndex,itemIndex,items.length,q,root);
+  installIphoneReviewSwipe(attemptIndex,itemIndex,items.length,root);
+  requestAnimationFrame(()=>requestAnimationFrame(()=>fitIphoneReviewScreen()));
 }
+
+function fitIphoneReviewScreen(){
+  if(window.innerWidth>700)return;
+  const body=document.body,card=document.getElementById('reviewCurrent');
+  if(!card)return;
+  body.classList.remove('review-fit-tight','review-fit-ultra');
+  const over=()=>card.scrollHeight>card.clientHeight+2;
+  if(over()){
+    body.classList.add('review-fit-tight');
+    void card.offsetHeight;
+  }
+  if(over()){
+    body.classList.add('review-fit-ultra');
+    void card.offsetHeight;
+  }
+}
+let IPHONE_REVIEW_SWIPE_CLEANUP=null;
+function installIphoneReviewSwipe(attemptIndex,itemIndex,itemCount,root){
+  if(IPHONE_REVIEW_SWIPE_CLEANUP){try{IPHONE_REVIEW_SWIPE_CLEANUP()}catch(e){}}
+  let sx=0,sy=0,st=0,active=false;
+  const touchStart=e=>{
+    if(!e.touches||e.touches.length!==1)return;
+    const t=e.touches[0];
+    sx=t.clientX;sy=t.clientY;st=Date.now();active=true;
+  };
+  const touchEnd=e=>{
+    if(!active)return;
+    active=false;
+    const t=e.changedTouches&&e.changedTouches[0];
+    if(!t)return;
+    const dx=t.clientX-sx,dy=t.clientY-sy,dt=Date.now()-st;
+    if(dt>900)return;
+    if(Math.abs(dx)<54)return;
+    if(Math.abs(dx)<Math.abs(dy)*1.25)return;
+    const target=e.target;
+    if(target&&target.closest&&target.closest('button,input,select,textarea,.vocab-popup'))return;
+    if(dx<0 && itemIndex<itemCount-1){
+      root.classList.add('swipe-left');
+      if(navigator.vibrate)try{navigator.vibrate(8)}catch(_){}
+      setTimeout(()=>renderReviewQuestion(attemptIndex,itemIndex+1),90);
+    }else if(dx>0 && itemIndex>0){
+      root.classList.add('swipe-right');
+      if(navigator.vibrate)try{navigator.vibrate(8)}catch(_){}
+      setTimeout(()=>renderReviewQuestion(attemptIndex,itemIndex-1),90);
+    }
+  };
+  root.addEventListener('touchstart',touchStart,{passive:true});
+  root.addEventListener('touchend',touchEnd,{passive:true});
+  IPHONE_REVIEW_SWIPE_CLEANUP=()=>{
+    root.removeEventListener('touchstart',touchStart);
+    root.removeEventListener('touchend',touchEnd);
+  };
+}
+
 function reviewCenter(forcedItems,attemptObj,attemptIndex,itemIndex=0){timerBadge.classList.add('hidden');clearInterval(window._timer);let idx=Number.isInteger(attemptIndex)?attemptIndex:-1;if(idx<0&&attemptObj)idx=S.attempts.indexOf(attemptObj);if(idx<0)idx=S.attempts.length-1;if(idx<0)return openReviewHistory();renderReviewQuestion(idx,itemIndex)}
 
 
@@ -1914,9 +2302,9 @@ function vocabularyCoach(){
       const row=document.createElement('div');row.className='vocab-table-row v15 v17';row.dataset.term=v.term;
       const qgs=quickGradeState(v.term);
       row.innerHTML=`<div class="mobile-vocab-main">
-          <button class="vocab-word-play speakRow" data-term="${esc(v.term)}" title="Chạm để nghe phát âm">${esc(v.term)}</button>
-          <div class="mobile-vocab-meaning">${esc(v.meaning)}</div>
-          <button class="mobile-speak-btn speakRow" data-term="${esc(v.term)}" title="Nghe từ + nghĩa"><span aria-hidden="true">🔊</span> Nghe</button>
+          <div class="mobile-vocab-word-row"><button class="vocab-word-play speakRow" data-term="${esc(v.term)}" title="Chạm để nghe phát âm">${esc(v.term)}</button></div>
+          <div class="mobile-vocab-audio-row"><button class="mobile-speak-btn speakRow" data-term="${esc(v.term)}" title="Nghe từ + nghĩa"><span aria-hidden="true">🔊</span> Nghe</button></div>
+          <div class="mobile-vocab-meaning">${esc(v.meaning||'Chưa có nghĩa')}</div>
           <div class="tiny-cat">${catLabel}</div>
         </div>
         <div class="mobile-vocab-priority"><span class="priority ${pb.cls}">${pb.code}</span></div>
@@ -2036,6 +2424,19 @@ function vocabularyCoach(){
     if('serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('./service-worker.js').catch(()=>{});
   });
 })();
+</script>
+<script id="iphone-v22-review-observer">
+
+(function(){
+  const obs=new MutationObserver(()=>{
+    const inReview=!!document.querySelector('.review-one-wrap');
+    if(!inReview)document.body.classList.remove('iphone-review-mode','review-fit-tight','review-fit-ultra');
+  });
+  obs.observe(document.getElementById('app'),{childList:true,subtree:false});
+  window.addEventListener('resize',()=>{if(document.body.classList.contains('iphone-review-mode'))fitIphoneReviewScreen()});
+  if(window.visualViewport)visualViewport.addEventListener('resize',()=>{if(document.body.classList.contains('iphone-review-mode'))fitIphoneReviewScreen()});
+})();
+
 </script>
 </body>
 </html>
