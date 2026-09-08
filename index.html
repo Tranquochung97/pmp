@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>PMP Coach — iPhone v23</title>
+<title>PMP Coach — iPhone v24</title>
 <style>
 
 :root{--nav:#173a61;--nav2:#0f2b49;--accent:#1f66ad;--bg:#f4f7fa;--card:#fff;--border:#ccd6e1;--text:#172331;--muted:#66788a;--good:#1b7f4b;--bad:#b52a2a;--warn:#9b6500;--hl:#fff59d}
@@ -228,6 +228,25 @@ textarea{width:100%;min-height:110px;border:1px solid var(--border);border-radiu
   .section-title{font-size:18px;margin:18px 2px 9px}.voice-studio{display:none!important} /* iPhone uses iOS voices automatically; reduce clutter */
 }
 
+\n/* ===== v26/v24 Dual Review: Classic + Logic First ===== */
+.review-mode-picker{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:4px 0 7px;padding:6px 8px;background:#f6f9fc;border:1px solid #dce6ef;border-radius:10px;font-size:11px;color:#36516c}
+.review-mode-picker b{font-size:11px;color:#173a61}.review-mode-choice{display:inline-flex;align-items:center;gap:5px;padding:4px 7px;border:1px solid #d5e0ea;border-radius:8px;background:#fff;cursor:pointer;font-weight:700}.review-mode-choice input{margin:0}.review-mode-note{font-size:9.5px;color:#738396}
+.logic-review{margin-top:6px;border:1px solid #d8e4ef;border-radius:10px;background:#fbfdff;overflow:hidden}.logic-review-title{padding:6px 8px;background:#eaf3ff;border-bottom:1px solid #d8e4ef;font-weight:900;color:#1c4e81;font-size:11px}.logic-section{padding:6px 8px;border-bottom:1px solid #e8eef4}.logic-section:last-child{border-bottom:0}.logic-label{font-size:10px;font-weight:900;color:#325c84;margin-bottom:3px}.logic-question{font-size:11.6px;line-height:1.34;color:#15283a}.logic-question b,.logic-answer b{color:#123e68}.inline-vi{font-weight:650;color:#8b4a18}.logic-code,.logic-fast{font-size:10px;line-height:1.3;margin-top:3px}.logic-analysis{display:grid;gap:2px;font-size:10.5px;line-height:1.28}.logic-answer-list{display:grid;gap:5px}.logic-answer-card{border:1px solid #dce5ed;border-radius:8px;padding:5px 7px;background:#fff;font-size:10.8px;line-height:1.3}.logic-answer-card.logic-correct{border-color:#82bf8a;background:#f4fbf5}.logic-answer-card.logic-user-wrong{border-color:#e1a0a0;background:#fff7f7}.logic-answer-head{display:flex;gap:6px;align-items:flex-start}.logic-answer-id{font-weight:900;min-width:16px}.logic-answer-reason{margin-top:2px;font-size:9.8px;color:#556575}.logic-summary{font-size:10.6px;font-weight:800;line-height:1.3}.logic-mindset{font-size:10.5px;line-height:1.3}.logic-trigger{font-size:10px;line-height:1.3}.dual-review-stack{display:grid;gap:6px}.review-hidden-by-mode{display:none!important}
+@media(max-width:700px){.review-mode-picker{gap:5px;padding:5px 6px;margin:3px 0 5px}.review-mode-picker b{width:100%}.review-mode-choice{padding:4px 6px;font-size:10px}.review-mode-note{display:none}.logic-section{padding:5px 6px}.logic-question{font-size:11px}.logic-answer-card{font-size:10.3px;padding:4px 6px}.logic-analysis{font-size:10px}.logic-review-title{padding:5px 6px}}
+body.iphone-review-mode .review-mode-picker{margin:2px 0 4px!important;padding:4px 5px!important;gap:4px!important;font-size:9px!important;border-radius:8px!important}
+body.iphone-review-mode .review-mode-picker b{font-size:9px!important;width:auto!important}
+body.iphone-review-mode .review-mode-choice{font-size:9px!important;padding:3px 5px!important;border-radius:7px!important}
+body.iphone-review-mode .logic-review{margin-top:4px!important;border-radius:8px!important}
+body.iphone-review-mode .logic-review-title{font-size:9.5px!important;padding:4px 5px!important}
+body.iphone-review-mode .logic-section{padding:4px 5px!important}
+body.iphone-review-mode .logic-label{font-size:8.8px!important;margin-bottom:2px!important}
+body.iphone-review-mode .logic-question{font-size:9.8px!important;line-height:1.24!important}
+body.iphone-review-mode .logic-code,body.iphone-review-mode .logic-fast{font-size:8.8px!important;line-height:1.2!important}
+body.iphone-review-mode .logic-analysis{font-size:9px!important;line-height:1.2!important;gap:1px!important}
+body.iphone-review-mode .logic-answer-list{gap:3px!important}
+body.iphone-review-mode .logic-answer-card{font-size:9.2px!important;line-height:1.2!important;padding:3px 5px!important;border-radius:6px!important}
+body.iphone-review-mode .logic-answer-reason{font-size:8.5px!important;line-height:1.18!important;margin-top:1px!important}
+body.iphone-review-mode .logic-summary,body.iphone-review-mode .logic-mindset,body.iphone-review-mode .logic-trigger{font-size:9px!important;line-height:1.2!important}
 </style>
 <style>
 /* ===== v14 FIX: 1-screen review + compact answers/explanation ===== */
@@ -706,7 +725,7 @@ textarea{width:100%;min-height:110px;border:1px solid var(--border);border-radiu
 </style>
 
 
-<style id="iphone-v23-day-plan">
+<style id="iphone-v24-day-plan">
 @media(max-width:700px){
   .day-plan-section{margin-top:16px}
   .day-plan-head{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin:0 2px 8px}
@@ -740,7 +759,7 @@ textarea{width:100%;min-height:110px;border:1px solid var(--border);border-radiu
 <body>
 <header class="top">
   <div>
-    <div class="brand">PMP Coach — iPhone v23</div>
+    <div class="brand">PMP Coach — iPhone v24</div>
     <div class="sub">Thi thử · Review · 5.000 Vocabulary · 13 Day · 1.080 câu · Review · Vocabulary · Voice</div>
   </div>
   <div class="top-actions">
@@ -1847,6 +1866,45 @@ function vocabMemorizeShortcut(q,root){
   const entry=findGlossary(hit.text,hit.context||root.innerText);
   addVocabTerm(hit.text,entry,hit.context||root.innerText,q);
 }
+
+// ================= v26/v24 DUAL REVIEW MODES =================
+const REVIEW_MODE_KEY='pmp_review_explain_modes_v26';
+let REVIEW_EXPLAIN_MODES=(()=>{try{const x=JSON.parse(localStorage.getItem(REVIEW_MODE_KEY)||'null');if(x&&(x.classic||x.logic))return {classic:!!x.classic,logic:!!x.logic}}catch(e){}return {classic:true,logic:false}})();
+function saveReviewModes(){try{localStorage.setItem(REVIEW_MODE_KEY,JSON.stringify(REVIEW_EXPLAIN_MODES))}catch(e){}}
+function reviewModePickerHtml(){return `<div class="review-mode-picker"><b>Cách giải thích:</b><label class="review-mode-choice"><input type="checkbox" id="modeClassic" ${REVIEW_EXPLAIN_MODES.classic?'checked':''}> 1 · Cũ</label><label class="review-mode-choice"><input type="checkbox" id="modeLogic" ${REVIEW_EXPLAIN_MODES.logic?'checked':''}> 2 · Logic First</label><span class="review-mode-note">Có thể bật 1 hoặc cả 2</span></div>`}
+function bindReviewModePicker(attemptIndex,itemIndex){
+  const a=document.getElementById('modeClassic'),b=document.getElementById('modeLogic');
+  const apply=(which,el)=>{let n={...REVIEW_EXPLAIN_MODES,[which]:!!el.checked};if(!n.classic&&!n.logic){el.checked=true;toast('Giữ ít nhất 1 cách giải thích');return}REVIEW_EXPLAIN_MODES=n;saveReviewModes();renderReviewQuestion(attemptIndex,itemIndex)};
+  if(a)a.onchange=()=>apply('classic',a);if(b)b.onchange=()=>apply('logic',b);
+}
+const REVIEW_INLINE_VI=[
+ ['product backlog','danh sách yêu cầu sản phẩm'],['sprint backlog','danh sách công việc Sprint'],['product owner','Chủ sản phẩm'],['scrum master','Scrum Master'],['project manager','quản lý dự án'],['stakeholder feedback','phản hồi bên liên quan'],['business value','giá trị kinh doanh'],['technical uncertainty','sự không chắc chắn kỹ thuật'],['technical unknown','điều kỹ thuật chưa biết'],['change control board','Hội đồng kiểm soát thay đổi'],['change request','yêu cầu thay đổi'],['acceptance criteria','tiêu chí chấp nhận'],['definition of done','định nghĩa hoàn thành'],['lessons learned','bài học kinh nghiệm'],['root cause','nguyên nhân gốc'],['market share','thị phần'],['release quickly','phát hành nhanh'],['time to market','thời gian ra thị trường'],['regulatory requirement','yêu cầu quy định'],['regulatory feature','tính năng bắt buộc theo quy định'],['high dependency','mức phụ thuộc cao'],['high complexity','độ phức tạp cao'],['low complexity','độ phức tạp thấp'],['high business value','giá trị kinh doanh cao'],['low business value','giá trị kinh doanh thấp'],['fixed release date','ngày phát hành cố định'],['scope baseline','đường cơ sở phạm vi'],['schedule baseline','đường cơ sở tiến độ'],['cost baseline','đường cơ sở chi phí'],['sprint planning','lập kế hoạch Sprint'],['sprint review','họp đánh giá Sprint/sản phẩm'],['retrospective','họp cải tiến'],['daily scrum','họp Scrum hằng ngày'],['backlog refinement','tinh chỉnh backlog'],['working increment','phần sản phẩm hoạt động được'],['user story','câu chuyện người dùng'],['story point','điểm ước lượng story'],['self-organizing','tự tổ chức'],['self-managing','tự quản lý'],['servant leader','lãnh đạo phục vụ'],['collaborate','hợp tác'],['facilitate','tạo điều kiện/điều phối'],['prioritize','sắp xếp ưu tiên'],['reprioritize','sắp xếp lại ưu tiên'],['estimate','ước lượng'],['dependency','sự phụ thuộc'],['scope','phạm vi'],['feature','tính năng'],['resolve','giải quyết'],['impediment','trở ngại'],['spike','nghiên cứu thử có giới hạn thời gian'],['baseline','đường cơ sở'],['iteration','vòng lặp'],['sprint','Sprint'],['backlog','danh sách công việc'],['risk','rủi ro'],['issue','vấn đề đã xảy ra'],['defect','lỗi sản phẩm'],['compliance','tuân thủ'],['escalate','chuyển cấp'],['approve','phê duyệt'],['assess','đánh giá'],['review','xem xét'],['monitor','theo dõi'],['validate','xác nhận đáp ứng nhu cầu'],['verify','xác minh']
+].sort((a,b)=>b[0].length-a[0].length);
+function reEscape2(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')}
+function inlineViReview(text,max=5){let out=esc(text||''),used=0;for(const [p,m] of REVIEW_INLINE_VI){if(used>=max)break;const re=new RegExp('\\b'+reEscape2(p).replace(/\\ /g,'\\s+')+'\\b','i');if(re.test(out)){out=out.replace(re,x=>`<b>${x} <span class="inline-vi">(${esc(m)})</span></b>`);used++}}return out}
+function questionOperator2(q){const t=(q.question||'').toLowerCase();if(/should have|could have|would have/.test(t))return 'SHOULD HAVE DONE';if(/what should .* first|first do|do first|first action/.test(t))return 'FIRST';if(/what should .* next|do next|next action/.test(t))return 'NEXT';if(/best|most appropriate|most effective/.test(t))return 'BEST';return 'SHOULD'}
+function envInfo2(q){const t=((q.question||'')+' '+(q.options||[]).map(o=>o.text).join(' ')).toLowerCase();const ag=['sprint','product backlog','product owner','scrum','iteration','retrospective','user story','velocity','spike'];const pr=['baseline','change control board','ccb','integrated change control','work breakdown structure','critical path','earned value'];const ah=ag.filter(x=>t.includes(x)),ph=pr.filter(x=>t.includes(x));if(ah.length&&ph.length)return {env:'Hybrid',tr:(ah[0]||'Agile')+' + '+(ph[0]||'Predictive')};if(ah.length)return {env:'Agile',tr:ah.slice(0,2).join(' / ')};if(ph.length)return {env:'Predictive',tr:ph.slice(0,2).join(' / ')};if(/agile|adaptive|incremental/.test(t))return {env:'Agile',tr:(t.includes('agile')?'agile':'adaptive/incremental')};return {env:'Mixed/Context',tr:'không có trigger lifecycle rõ'} }
+function logicProfile2(q){
+ const t=((q.question||'')+' '+(q.correctAnswerText||'')+' '+(q.feedback||'')).toLowerCase(),env=envInfo2(q),op=questionOperator2(q);let root='Xác định đúng vấn đề gốc trước khi hành động',authority='PM phân tích và phối hợp đúng role',seq='Assess → Collaborate → Act',react='Ưu tiên đúng root cause + authority + sequence',summary='Hiểu vấn đề → đúng role → hành động đúng trình tự',mind='Assess before acting.',remember='Hiểu trước → hành động sau.',tr='should / best';
+ if(/technical (unknown|uncertaint)|lack.*technical|cannot.*estimat|unable.*estimat/.test(t)){root='Thiếu kiến thức kỹ thuật để estimate';authority='🛠 Spike để giảm uncertainty';seq='Investigate → Learn → Estimate';react='Chưa biết đủ → Spike trước';summary='Technical unknown → Spike → estimate sau';mind='Reduce uncertainty before committing.';remember="Don't know → Spike.";tr='technical unknown / cannot estimate'}
+ else if(/priority|priorit|business value|dependency/.test(t)&&/backlog|product owner|sprint/.test(t)){root='Cân bằng value / priority / dependency';authority='PO owns priority; PM/team facilitate trade-off';seq='Discuss → Evaluate trade-off → Prioritize';react='Không tự ưu tiên thay PO/team';summary='Priority/value conflict → PO + team discuss → prioritize';mind='Prioritize by value with the right owner.';remember='Priority? Think PO + value.';tr='priority / business value / dependency'}
+ else if(/stakeholder.*feedback|feedback.*stakeholder|demonstrat|working increment|product increment/.test(t)){root='Cần feedback/visibility trên sản phẩm thực';authority='🛠 Sprint Review / demo increment';seq='Demonstrate → Feedback → Adapt';react='Cho xem working product';summary='Stakeholder feedback → Sprint Review';mind='Working product over progress reports.';remember='Want feedback → Show the product.';tr='stakeholder feedback / increment'}
+ else if(/retrospective|prevent.*future|prevent recurrence|improve.*process|team.*process/.test(t)){root='Cần cải tiến process/team để tránh lặp lại';authority='🛠 Retrospective';seq='Inspect → Root cause → Improve';react='Ngăn tái diễn → Retro';summary='Prevent recurrence → Retrospective';mind='Inspect the process, then improve it.';remember='Future prevention → Retro.';tr='prevent recurrence / improve process'}
+ else if(/regulat|compliance|mandatory/.test(t)){root='Yêu cầu compliance/regulatory phải được xử lý';authority=env.env==='Agile'?'PO/backlog + team':'PM theo compliance/governance';seq=env.env==='Agile'?'Capture → Prioritize → Plan':'Assess → Plan/Approve → Implement';react='Không bỏ qua yêu cầu bắt buộc';summary='Compliance requirement → capture → assess/prioritize → plan';mind='Compliance is mandatory, not optional.';remember='Mandatory → capture and handle.';tr='regulatory / compliance / mandatory'}
+ else if(/change request|scope change|change control|baseline/.test(t)){root='Có thay đổi ảnh hưởng scope/baseline';authority=env.env==='Agile'?'PO quản lý backlog priority':'CCB/defined change authority';seq=env.env==='Agile'?'Validate → Backlog → Prioritize':'Assess impact → Submit → Approve → Implement';react=env.env==='Agile'?'Backlog/PO trước':'Không implement trước approval';summary=env.env==='Agile'?'Agile change → backlog → PO prioritize':'Predictive change → assess → approve → implement';mind=env.env==='Agile'?'Welcome change through the backlog.':'No approved change, no implementation.';remember=env.env==='Agile'?'Change → Backlog.':'Change → Approve first.';tr='change request / baseline'}
+ else if(/risk/.test(t)){root=/occurred|happened|materialized|now/.test(t)?'Risk đã xảy ra → xử lý như issue':'Risk chưa xảy ra → quản lý response/monitor';authority='PM + risk owner';seq=/occurred|happened|materialized/.test(t)?'Assess → Respond → Update':'Identify/Assess → Response → Monitor';react='Phân biệt Risk vs Issue';summary='Risk → plan/monitor; xảy ra rồi → issue response';mind='Risks are managed before and after response.';remember='Future = Risk; happened = Issue.';tr='risk / occurred'}
+ else if(/conflict|disagree|struggl.*agree|argument|tension/.test(t)){root='Team/stakeholders đang bất đồng';authority='PM/Scrum Master facilitate; không quyết thay';seq='Listen → Facilitate → Collaborate';react='Hợp tác trước, escalation sau nếu cần';summary='Conflict → facilitate → collaborate → resolve';mind='Facilitate; do not impose.';remember="Conflict → Collaborate.";tr='conflict / disagree'}
+ else if(/quality|defect|definition of done|dod/.test(t)){root='Chất lượng/defect cần xử lý đúng cơ chế';authority=/definition of done|inconsistent/.test(t)?'🛠 Definition of Done':'Team + quality process';seq='Inspect → Root cause → Correct/Prevent';react='Build quality into process';summary='Quality issue → inspect → root cause → improve';mind='Build quality in, do not inspect it in later.';remember='Quality → Root cause + prevention.';tr='quality / defect'}
+ else if(/market share|release.*quick|first.to.market|speed to market|minimum viable|mvp/.test(t)){root='Cần đưa value ra thị trường sớm';authority='PO prioritizes value; team delivers incrementally';seq='Prioritize value → Small increment → Release/Feedback';react='Value first, không easiest first';summary='Fast market → value first → incremental delivery';mind='Deliver the highest value sooner.';remember='Fast market → MVP/value first.';tr='release quickly / market share'}
+ else if(/impediment|blocked|blocker/.test(t)){root='Có impediment cản team';authority='Scrum Master/servant leader hỗ trợ loại bỏ';seq='Identify → Facilitate removal → Continue';react='Remove impediment, không command team';summary='Impediment → facilitate removal';mind='Servant leaders remove impediments.';remember='Blocked team → remove blocker.';tr='impediment / blocked'}
+ else if(/procure|vendor|supplier|contract/.test(t)){root='Vấn đề procurement/vendor/contract';authority='PM + procurement/contract authority';seq='Review contract → Assess → Act/Negotiate';react='Kiểm tra contract trước';summary='Vendor issue → contract first → assess → act';mind='Honor the contract and manage the relationship.';remember='Vendor? Check contract.';tr='vendor / contract'}
+ return {env,op,root,authority,seq,react,summary,mind,remember,tr};
+}
+function logicReasonTag2(q,o,isCorrect){const t=(o.text||'').toLowerCase(),p=logicProfile2(q);if(isCorrect){if(/product owner/.test(t))return 'Đúng authority';if(/facilitat|collaborat/.test(t))return 'Đúng collaboration';if(/spike/.test(t))return 'Đúng tool + sequence';if(/review|retrospective/.test(t))return 'Đúng event';if(/assess|analy|review/.test(t))return 'Đúng sequence';return 'Đúng root + sequence'}if(/escalat|sponsor/.test(t))return 'Escalate quá sớm';if(/immediately|implement now|directly/.test(t))return 'Hành động quá sớm';if(/project manager.*decid|direct the|assign/.test(t))return 'Command-and-control';if(/product owner/.test(t)&&!(/priority|backlog|value/.test(p.root.toLowerCase())))return 'Sai role';if(/defer|later|next sprint/.test(t))return 'Trì hoãn, chưa xử lý root';if(/email|notify|inform/.test(t))return 'Chỉ communication, thiếu collaboration';if(/train|training|replace|hire/.test(t))return 'Chưa chứng minh root là năng lực';if(/change control|ccb|baseline/.test(t)&&p.env.env==='Agile')return 'Quá formal cho Agile';if(/backlog/.test(t)&&!/backlog|priority|value|requirement/.test(p.root.toLowerCase()))return 'Lệch trọng tâm';return 'Không khớp root/sequence'}
+function renderLogicReview(q,it){const p=logicProfile2(q),correct=q.correct||[],op=p.op,actor=/product owner/i.test(q.question)?'PO':(/scrum master/i.test(q.question)?'Scrum Master':'PM/Team');const code=`${p.env.env.toUpperCase()} → ${p.root.replace(/\s+/g,' ').slice(0,38).toUpperCase()} → ${op}`;return `<div class="logic-review vocab-zone"><div class="logic-review-title">2 · Logic First — phân tích trước đáp án</div><div class="logic-section"><div class="logic-label">🇬🇧 ① QUESTION</div><div class="logic-question">${inlineViReview(q.question,6)}</div><div class="logic-code"><b>🔍 Code:</b> ${esc(code)}</div><div class="logic-fast"><b>🇻🇳 Hiểu nhanh:</b> ${esc(p.root)} → ${esc(p.react)}</div></div><div class="logic-section"><div class="logic-label">🧭 ② PHÂN TÍCH RFG</div><div class="logic-analysis"><div><b>🌍 Env:</b> <code>${esc(p.env.tr)}</code> → <b>${esc(p.env.env)}</b></div><div><b>🎯 Root:</b> ${esc(p.root)}</div><div><b>👤 Authority/🛠 Tool:</b> ${esc(p.authority)}</div><div><b>🔄 Sequence:</b> <code>${esc(p.seq)}</code></div><div><b>👉 Phản xạ:</b> ${esc(p.react)}</div></div></div><div class="logic-section"><div class="logic-label">🔎 ③ ANSWERS</div><div class="logic-answer-list">${(q.options||[]).map(o=>{const c=correct.includes(o.id),u=(it.answer||[]).includes(o.id)&&!c;return `<div class="logic-answer-card ${c?'logic-correct':(u?'logic-user-wrong':'')}"><div class="logic-answer-head"><span class="logic-answer-id">${c?'✅':(u?'❌':'▫️')} ${esc(o.id)}.</span><div>${inlineViReview(o.text,4)}</div></div><div class="logic-answer-reason">${c?'🎯':'⛔'} <b>${esc(logicReasonTag2(q,o,c))}</b>${u?' · Bạn đã chọn':''}</div></div>`}).join('')}</div></div><div class="logic-section"><div class="logic-summary">⚡ ${esc(p.summary)}</div></div><div class="logic-section"><div class="logic-mindset"><b>🧠 Mindset:</b> ${esc(p.mind)} — <b>🧷 Nhớ:</b> ${esc(p.remember)}</div></div><div class="logic-section"><div class="logic-trigger"><b>🚨 Trigger:</b> <code>${esc(p.tr)}</code> → <b>${esc(p.react)}</b></div></div></div>`}
+function renderReviewExplanations(q,it){return `<div class="dual-review-stack">${REVIEW_EXPLAIN_MODES.classic?renderCompactReview(q,it):''}${REVIEW_EXPLAIN_MODES.logic?renderLogicReview(q,it):''}</div>`}
+// =======================================================================
+
 function renderReviewQuestion(attemptIndex,itemIndex){
   const attempt=S.attempts[attemptIndex];if(!attempt)return openReviewHistory();const items=attempt.items||[];if(!items.length)return openReviewHistory();
   itemIndex=Math.max(0,Math.min(items.length-1,itemIndex));REVIEW_STATE={attemptIndex,itemIndex};const it=items[itemIndex],q=getQ(it.id),st=S.questionStats[it.id]||{};if(!q){toast('Không tìm thấy câu hỏi nguồn');return}
@@ -1856,11 +1914,12 @@ function renderReviewQuestion(attemptIndex,itemIndex){
       <div class="review-mobile-progress"><b>Câu ${itemIndex+1}/${items.length}</b><span>${esc(attempt.day||attempt.mode||'Test')} · ${attempt.correct}/${attempt.total} (${pct(attempt.correct,attempt.total)}%)</span></div>
       <span class="review-swipe-hint">⇆ Vuốt</span>
     </div>
-    <article class="review-question-card review-single-page" id="reviewCurrent">
+    ${reviewModePickerHtml()}
+  <article class="review-question-card review-single-page" id="reviewCurrent">
       <div class="review-q-meta"><div><b>${esc(q.source)} · Câu ${q.sourceQuestion}</b><span>${it.sec||0}s</span></div><div class="review-state ${it.correct?'good':'bad'}">${it.correct?(it.unsure?'Đúng · 50:50':'Đúng'):'Sai'}</div></div>
       <div class="review-question vocab-zone">${esc(q.question)}</div>
       <div class="review-options compact-options">${q.options.map(o=>{const c=(q.correct||[]).includes(o.id),u=(it.answer||[]).includes(o.id);return `<div class="review-option ${c?'correct-option':(u?'wrong-option':'')} vocab-zone"><span>${o.id}</span><div>${esc(o.text)}</div>${c?'<b>✓</b>':(u?'<b>×</b>':'')}</div>`}).join('')}</div>
-      ${renderCompactReview(q,it)}
+      ${renderReviewExplanations(q,it)}
       <div class="review-footer small">Wrong ${st.wrongCount||0} · 50:50 ${st.unsureCount||0} · Streak ${st.correctStreak||0}${st.nextDue?' · Ôn '+new Date(st.nextDue).toLocaleDateString():''}</div>
     </article>
     <div class="review-bottom-nav">
@@ -1870,6 +1929,7 @@ function renderReviewQuestion(attemptIndex,itemIndex){
     </div>
   </div>`;
   const root=document.getElementById('reviewCurrent');
+  bindReviewModePicker(attemptIndex,itemIndex);
   document.body.classList.add('iphone-review-mode');
   document.body.classList.remove('review-fit-tight','review-fit-ultra');
   attachVocabInteractions(root,q);
